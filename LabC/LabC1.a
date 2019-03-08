@@ -1,0 +1,11 @@
+ecall x2,x0,5			//B
+addi x5,x0,0			//x
+addi x1,x0,2			//A
+blt x2,x1,else
+beq x0,x0,exit 			//if b is not less than A ends the code
+
+else:
+addi x5,x0,1 			//x=1
+beq x0,x0,exit
+
+exit:

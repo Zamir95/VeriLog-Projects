@@ -1,0 +1,23 @@
+/* Name:Zamir Lalji ID:zamir13 */
+public class LabA7 {
+    public static void main(String[] args) {
+        int a = Integer.parseInt(args[0]);
+        System.out.println(Integer.toBinaryString(a));
+
+        int b = a << 21;
+        y = b >>> 31; // get bit #10 of a
+
+        int c = a << 11;
+        c = c >>> 31; // get bit #20 of a
+
+        if (b == 1 && c == 0) {        // if bit #10 is 1 and bit #20 is 0
+            a |= (1 << 20);            // set bit #20
+            a &= ~(1 << 10);           // clear bit #10
+        } else if (b == 0 && c == 1) { // if bit #20 is 1 and bit #10 is 0
+            a |= (1 << 10);            // set bit #10th
+            a &= ~(1 << 20);           // clear bit #20
+        }
+
+        System.out.println(Integer.toBinaryString(a));
+    }
+}

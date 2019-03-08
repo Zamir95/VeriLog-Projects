@@ -1,0 +1,38 @@
+// Zamir Lalji
+// Student Id: 212779997
+
+module labK;
+
+   reg a, b, c, flag;
+   wire notOut, lowInput;
+   wire firstAndOut, firstAndIn;
+   wire secondAndOut, secondAndIn;
+
+   not (notOut, c);
+   and (firstAndOut, a, lowInput);
+   and (secondAndOut, c, b);
+   or (z, firstAndIn, secondAndIn);
+   assign lowInput = notOut;
+   assign firstAndIn = firstAndOut;
+   assign secondAndIn = secondAndOut;
+
+   initial
+     begin
+        flag = $value$plusargs("a=%b", a);
+        if (flag === 0)
+          $display(" a is missing.");
+
+        flag = $value$plusargs("b=%b", b);
+        if (flag === 0)
+          $display("b is missing.");
+
+        flag = $value$plusargs("c=%b", c);
+        if (flag === 0)
+          $display("c is missing.");
+
+        #1; // wait for z
+        $display("a=%b b=%b c=%b z=%b", a, b, c, z);
+        $finish;
+     end
+
+endmodule

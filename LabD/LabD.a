@@ -1,0 +1,33 @@
+addi x2,x0,1600			// stack pointer
+addi x7,x0,3			// x7 = 3
+addi x17,x0,2			// x17 = 2
+ecall x6,x0,5			// environmental call int put it to x6
+add x10,x6,x0			// store x6 in x10
+addi x2,x2,-8			// two vacancies for the stack
+sd x6,0(x2)			// store x2 in x6 
+jal x1, not_really_fac		// call recursive function
+ld x6,0(x2)			// restore x6 argument
+addi x2,x2,8			// restored the stack
+ecall x0,x10,0			// ecall to the prompt
+
+ORG 96
+
+not_really_fac:
+addi x2,x2,-16			// x2 stack pointer 2 vacancies
+sd x1,8(x2)			// stored x1
+sd x10,0(x2)			// stored x10
+bge x7,x10,L1			// 3 > input go to L1
+addi x10,x10,-2			// (i-2)
+addi x6,x10,0			// stored i-2 in x6
+jal x1,not_really_fac			// call the recursion
+sd x6,0(x2)			// stored x6
+ld x1,8(x2)			// stored return address
+addi x2,x2,16			// pop the stack
+mul x10,x10,x17			// 2(i-2)
+addi x10,x10,1			// 2(i-2)+1
+jalr x0,0(x1)			// returned back to caller
+
+L1:
+addi x10,x0,1			//made x10 1
+addi x2,x2,16			//pop the stack 
+jalr x0,0(x1)			// return to caller

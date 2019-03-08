@@ -1,0 +1,16 @@
+/* Name:Zamir Lalji ID:zamir13 */
+public class LabA6 {
+    public static void main(String[] args) {
+        int a = Integer.parseInt(args[0]);
+        System.out.println(Integer.toBinaryString(a) + "\t(a)");
+
+        // set   the #10 bit
+        a |= 1 << 10;
+        
+        System.out.println(Integer.toBinaryString(a) + "\t(bit #10 set)");
+        // clear the #11 bit
+        a &= ~(1 << 11);
+        
+        System.out.println(Integer.toBinaryString(a) + "\t(bit #11 cleared)");
+    }
+}

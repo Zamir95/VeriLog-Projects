@@ -1,0 +1,26 @@
+
+addi x1,x0,0			//Y output			
+addi x2,x0,0			//X output 
+ecall x3,x0,5			//A					
+ecall x4,x0,5			//B
+ecall x5,x0,5			//C
+addi x6,x0,5 
+
+
+blt x4,x3,A 			//tests if x3 < x4 and prints new A value
+beq x0,x0,Else
+A:			//print out A=5
+beq x5,x6,B			//test to see if x6 == x5 
+beq x0,x0,Else
+B:			//print out B
+
+addi x1,x0,1 
+addi x2,x0,2 
+beq x0,x0,Exit
+
+Else:
+addi x1,x0,0 
+addi x2,x0,0 
+
+Exit:
+

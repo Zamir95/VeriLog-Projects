@@ -1,0 +1,27 @@
+ORG 96
+DD -1,-2
+
+addi x1,x0,5				//A
+ecall x2,x0,5				
+ld x5,0(x0)				 
+ld x6,8(x0) 				
+
+blt x2,x1,a
+blt x1,x2,b
+addi x5,x0,0				//y
+addi x6,x0,0				//z
+beq x0,x0,Exit
+
+Exit:
+
+a:
+addi x5,x0,1
+addi x6,x0,2
+beq x0,x0,Exit
+
+b:
+addi x5,x0,5
+addi x6,x0,5
+beq x0,x0,Exit
+
+Exit:
