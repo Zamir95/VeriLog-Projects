@@ -1,4 +1,3 @@
-//Zamir Lalji	212779997
 module yMux1(z, a, b, c);
 output z;
 input a, b, c;
