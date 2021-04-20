@@ -1,4 +1,3 @@
-//Zamir Lalji	212779997
 module labm9;
 reg a, b;
 reg [31:0] entryPoint;
