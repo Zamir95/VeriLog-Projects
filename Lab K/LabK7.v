@@ -1,6 +1,3 @@
-// Zamir Lalji
-// Student Id: 212779997
-
 module labK;
 
    reg a, b, c, flag;
