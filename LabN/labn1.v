@@ -1,4 +1,3 @@
-//Zamir Lalji	212779997
 module labm9;
 reg a, RegDst, RegWrite, ALUSrc, Mem2Reg, MemRead, MemWrite, INT, branch, jump;
 reg [31:0] entryPoint;
